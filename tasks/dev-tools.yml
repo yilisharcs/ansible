@@ -3,12 +3,25 @@
   with_items:
     - build-essential
     - cmake
+    - freeglut3-dev
     - gcc-mingw-w64          # cross-compilation linux -> windows
+    - gcc-multilib
     - gettext
+    - g++-multilib
     - libasound2-dev
+    - libbz2-dev
     - libcrypto++-dev
+    - libexpat1-dev
+    - libfontconfig1-dev
+    - libfreetype6-dev
     - libmagic-dev
+    - libsndio-dev
+    - libssl-dev
     - libudev-dev
     - libwayland-dev
+    - libxcb-composite0-dev
+    - libxcursor-dev
+    - libxi-dev
+    - libxmu-dev
     - ninja-build
-    - pkg-config
+    - pkg-config                    # pkgconf symlink

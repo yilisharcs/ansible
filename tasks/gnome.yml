@@ -7,3 +7,9 @@
     key: "/org/gnome/desktop/background/picture-uri-dark"
     value: "'file:///home/yilisharcs/Pictures/wallpaper.png'"
     state: present
+
+- name: Install GNOME-extension dependencies
+  apt: name={{item}}
+  with_items:
+    - gir1.2-gtop-2.0        # Vitals
+    - lm-sensors             # Vitals

@@ -1,4 +1,4 @@
-- name: Install user essential packages
+- name: Install from package manager
   apt: name={{item}}
   with_items:
     - atool                          # compression and extraction tools
@@ -37,3 +37,29 @@
     - wl-clipboard
     - yq                             # jq but for yaml
     - zoxide                         # better cd
+
+- name: Install python packages
+  pipx: name={{item}}
+  with_items:
+    - trash-cli
+    - yt-dlp
+
+- name: Install cargo packages
+  cargo:
+    name:
+      - bacon
+      - cargo-audit
+      - cargo-auditable
+      - cargo-binstall
+      - cargo-modules
+      - cargo-nextest
+      - cargo-sweep
+      - cargo-update
+      - zoxide                         # better cd
+      - fnm                            # node version manager
+      - rustlings
+      - nu_plugin_inc
+      - nu_plugin_polars
+      - nu_plugin_gstat
+      - nu_plugin_formats
+      - nu_plugin_query
