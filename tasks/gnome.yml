@@ -1,5 +1,10 @@
 - name: Copy wallpaper file
-  copy: src=files/wallpaper.png dest=/home/yilisharcs/Pictures/wallpaper.png owner=yilisharcs group=yilisharcs mode=600
+  copy:
+    src: files/wallpaper.png
+    dest: /home/yilisharcs/Pictures/wallpaper.png
+    owner: yilisharcs
+    group: yilisharcs
+    mode: '600'
 
 - name: Set GNOME Wallpaper
   become_user: yilisharcs
