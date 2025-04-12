@@ -4,7 +4,7 @@
     uid: 900
 
 - name: copy sudoers_ansible
-  ansible.builtin.copy:
+  copy:
     src: files/sudoers_ansible
     dest: /etc/sudoers.d/ansible
     owner: root

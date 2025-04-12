@@ -3,6 +3,7 @@
 
 - name: Set GNOME Wallpaper
   become_user: yilisharcs
-  community.general.dconf:
-    key: "/org/gnome/desktop/background/picture-uri"
-    value: "file:///home/yilisharcs/Pictures/wallpaper.png"
+  dconf:
+    key: "/org/gnome/desktop/background/picture-uri-dark"
+    value: "'file:///home/yilisharcs/Pictures/wallpaper.png'"
+    state: present
