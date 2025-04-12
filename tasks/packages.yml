@@ -6,6 +6,7 @@
     - bibata-cursor-theme
     - binaryen                       # wasm toolchain binaries
     - curl
+    - dconf-editor
     - entr                           # file watcher
     - fd-find                        # better find
     - fzf                            # fuzzy finder
@@ -55,7 +56,6 @@
       - cargo-nextest
       - cargo-sweep
       - cargo-update
-      - zoxide                         # better cd
       - fnm                            # node version manager
       - rustlings
       - nu_plugin_inc
