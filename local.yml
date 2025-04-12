@@ -1,63 +1,13 @@
 - hosts: localhost
   become: true
+  pre_tasks:
+    - name: update repositories
+      apt: update_cache=yes
+      changed_when: False
+
   tasks:
-  - name: Install user essential packages
-    apt: name={{item}}
-    with_items:
-    - atool                          # compression and extraction tools
-    - bat                            # better cat
-    - bibata-cursor-theme
-    - binaryen                       # wasm toolchain binaries
-    - curl
-    - entr                           # file watcher
-    - fd-find                        # better find
-    - fzf                            # fuzzy finder
-    - gh                             # github cli client
-    - git
-    - gimp                           # foss photoshop
-    - gnome-shell-extension-manager
-    - htop                           # cli system monitor
-    - imagemagick
-    - jq                             # yq but for json
-    - lf                             # cli file explorer
-    - make                           # makefiles
-    - mesa-utils                     # gpu utils
-    - ncdu                           # disk space checker
-    - pass                           # cli password manager
-    - pipx                           # python package manager
-    - qbittorrent
-    - ripgrep                        # better grep
-    - rustup
-    - sccache                        # rust build cache tool
-    - sqlite3
-    - starship                       # debian trixie
-    - stow                           # symlink manager
-    - syncthing
-    - timeshift
-    - tmux
-    - tokei                          # loc counter
-    - tree                           # directory contents in tree format
-    - wl-clipboard
-    - yq                             # jq but for yaml
-    - zoxide                         # debian forky
-
-  - name: Install dev libraries and tools
-    apt: name={{item}}
-    with_items:
-      - build-essential
-      - cmake
-      - gcc-mingw-w64                # cross compilation linux -> windows
-      - gettext
-      - libasound2-dev
-      - libcrypto++-dev
-      - libmagic-dev
-      - libudev-dev
-      - libwayland-dev
-      - ninja-build
-      - pkg-config
-
-  - name: Install GNOME extensions dependencies
-    apt: name={{item}}
-    with_items:
-      - gir1.2-gtop-2.0              # Vitals
-      - lm-sensors                   # Vitals
+    - include: tasks/users.yml
+    - include: tasks/cron.yml
+    - include: tasks/packages.yml
+    - include: tasks/dev-tools.yml
+    - include: tasks/gnome.yml

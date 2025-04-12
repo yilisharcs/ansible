@@ -1,0 +1,8 @@
+- name: Copy wallpaper file
+  copy: src=files/wallpaper.png dest=/home/yilisharcs/Pictures/wallpaper.png owner=yilisharcs group=yilisharcs mode=600
+
+- name: Set GNOME Wallpaper
+  become_user: yilisharcs
+  community.general.dconf:
+    key: "/org/gnome/desktop/background/picture-uri"
+    value: "file:///home/yilisharcs/Pictures/wallpaper.png"

@@ -1,0 +1,14 @@
+- name: Install dev libraries and tools
+  apt: name={{item}}
+  with_items:
+    - build-essential
+    - cmake
+    - gcc-mingw-w64          # cross-compilation linux -> windows
+    - gettext
+    - libasound2-dev
+    - libcrypto++-dev
+    - libmagic-dev
+    - libudev-dev
+    - libwayland-dev
+    - ninja-build
+    - pkg-config

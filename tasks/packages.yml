@@ -1,0 +1,39 @@
+- name: Install user essential packages
+  apt: name={{item}}
+  with_items:
+    - atool                          # compression and extraction tools
+    - bat                            # better cat
+    - bibata-cursor-theme
+    - binaryen                       # wasm toolchain binaries
+    - curl
+    - entr                           # file watcher
+    - fd-find                        # better find
+    - fzf                            # fuzzy finder
+    - gh                             # github cli client
+    - git
+    - gimp                           # foss photoshop
+    - gnome-shell-extension-manager
+    - htop                           # cli system monitor
+    - imagemagick
+    - jq                             # yq but for json
+    - lf                             # cli file explorer
+    - make                           # makefiles
+    - mesa-utils                     # gpu utils
+    - ncdu                           # disk space checker
+    - pass                           # cli password manager
+    - pipx                           # python package manager
+    - qbittorrent
+    - ripgrep                        # better grep
+    - rustup                         # rust toolchain manager
+    - sccache                        # rust build cache tool
+    - sqlite3
+    - starship                       # shell prompt tool
+    - stow                           # symlink manager
+    - syncthing                      # peer-to-peer file sync
+    - timeshift
+    - tmux
+    - tokei                          # loc counter
+    - tree                           # recursive ls in tree format
+    - wl-clipboard
+    - yq                             # jq but for yaml
+    - zoxide                         # better cd
