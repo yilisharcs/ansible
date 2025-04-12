@@ -1,6 +1,8 @@
 - name: Install from package manager
-  apt: name={{item}}
-  with_items:
+  apt:
+    name: "{{ item }}"
+    state: present
+  loop:
     - atool                          # compression and extraction tools
     - bat                            # better cat
     - bibata-cursor-theme
@@ -40,26 +42,32 @@
     - zoxide                         # better cd
 
 - name: Install python packages
-  pipx: name={{item}}
-  with_items:
+  pipx:
+    name: "{{ item }}"
+    state: present
+  loop:
     - trash-cli
     - yt-dlp
 
 - name: Install cargo packages
+  become_user: yilisharcs
   cargo:
-    name:
-      - bacon
-      - cargo-audit
-      - cargo-auditable
-      - cargo-binstall
-      - cargo-modules
-      - cargo-nextest
-      - cargo-sweep
-      - cargo-update
-      - fnm                            # node version manager
-      - rustlings
-      - nu_plugin_inc
-      - nu_plugin_polars
-      - nu_plugin_gstat
-      - nu_plugin_formats
-      - nu_plugin_query
+    name: "{{ item }}"
+    state: present
+    path: /home/yilisharcs/.cargo
+  loop:
+    - bacon
+    - cargo-audit
+    - cargo-auditable
+    - cargo-binstall
+    - cargo-modules
+    - cargo-nextest
+    - cargo-sweep
+    - cargo-update
+    - fnm                            # node version manager
+    - rustlings
+    - nu_plugin_inc
+    - nu_plugin_polars
+    - nu_plugin_gstat
+    - nu_plugin_formats
+    - nu_plugin_query

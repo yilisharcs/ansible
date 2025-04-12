@@ -1,6 +1,8 @@
 - name: Install dev libraries and tools
-  apt: name={{item}}
-  with_items:
+  apt:
+    name: "{{ item }}"
+    state: present
+  loop:
     - build-essential
     - cmake
     - freeglut3-dev
